@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.mathanosto.blog.entities.Post;
 import com.mathanosto.blog.payloads.PostDto;
+import com.mathanosto.blog.payloads.PostResponse;
 
 public interface PostService {
 
@@ -25,7 +26,7 @@ public interface PostService {
 
 	// Get all posts
 
-	List<PostDto> getAllPosts();
+	PostResponse getAllPosts(Integer pageNumber, Integer pageSize);
 
 	// Get all posts by category
 
