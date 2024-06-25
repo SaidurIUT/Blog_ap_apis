@@ -2,7 +2,6 @@ package com.mathanosto.blog.services;
 
 import java.util.List;
 
-import com.mathanosto.blog.entities.Post;
 import com.mathanosto.blog.payloads.PostDto;
 import com.mathanosto.blog.payloads.PostResponse;
 
@@ -26,7 +25,7 @@ public interface PostService {
 
 	// Get all posts
 
-	PostResponse getAllPosts(Integer pageNumber, Integer pageSize);
+	PostResponse getAllPosts(Integer pageNumber, Integer pageSize, String sortBy, String sortDir);
 
 	// Get all posts by category
 
@@ -38,6 +37,6 @@ public interface PostService {
 
 	// Search posts by keyword
 
-	List<Post> searchPosts(String keyword);
+	List<PostDto> searchPosts(String keyword);
 
 }
