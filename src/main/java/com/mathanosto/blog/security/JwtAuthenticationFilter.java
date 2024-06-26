@@ -41,7 +41,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 		if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
 			jwtToken = requestTokenHeader.substring(7);
 			try {
-				username = jwtTokenHelper.getUserNameFromToken(jwtToken);
+				username = jwtTokenHelper.getUsernameFromToken(jwtToken);
 			} catch (IllegalArgumentException e) {
 				System.out.println("Unable to get JWT token !!!");
 			} catch (ExpiredJwtException e) {
@@ -67,6 +67,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 		} else {
 			System.out.println("Username is null !!! Or SecurityContextHolder is not null !!!");
 		}
+
+		filterChain.doFilter(request, response);
 
 	}
 
